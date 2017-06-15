@@ -7,3 +7,4 @@ To load the GTSRB dataset correctly in the jupyter notebook, please extract the 
 
 ../GTSRB/Final_Training/..
 
+A cell can also do this for you.
