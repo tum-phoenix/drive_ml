@@ -3,3 +3,4 @@ matplotlib
 jupyter
 pandas
 urllib3
+pillow
