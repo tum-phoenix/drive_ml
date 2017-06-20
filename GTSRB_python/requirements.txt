@@ -5,3 +5,5 @@ pandas
 urllib3
 pillow
 scikit-image
+keras
+tensorflow
