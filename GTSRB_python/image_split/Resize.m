@@ -1,8 +1,8 @@
-function [ O ] = Resize( pic )
+function [ O ] = Resize( pic,n )
 %RESIZE Summary of this function goes here
 %   Detailed explanation goes here
 
-O={imresize(pic{1,1},[32 32]),imresize(pic{1,2},[32 32]),imresize(pic{1,3},[32 32]),imresize(pic{1,4},[32 32])};
+O={imresize(pic{1,1},[n n]),imresize(pic{1,2},[n n]),imresize(pic{1,3},[n n]),imresize(pic{1,4},[n n])};
 
 end
 
