@@ -5,6 +5,29 @@ import zipfile
 import urllib.request
 import sys
 
+
+def _download_and_unzip(target_path, download_url):
+    target_root, target_dirname = os.path.split(target_path)
+    zip_path = os.path.join(target_root, target_dirname + '.zip')
+    req = urllib.request.urlopen(download_url)
+    total_size = int(req.getheader('Content-Length').strip())
+    downloaded = 0
+    CHUNK = 256 * 10240
+    with open(zip_path, 'wb') as fp:
+        while True:
+            chunk = req.read(CHUNK)
+            downloaded += len(chunk)
+            sys.stdout.write('\r' + 'Downloaded ' + str(math.floor((downloaded / total_size) * 100)) + '%')
+            if not chunk: break
+            fp.write(chunk)
+    zip_ref = zipfile.ZipFile(zip_path, 'r')
+    zip_ref.extractall(target_path)
+    zip_ref.close()
+    os.remove(zip_path)
+    sys.stdout.write('\n')
+
+
+
 def download_gtsrb_testdata() -> str:
     # convention: we store our GTSRB folder at the same height as the ML repo
     absolute_path = os.path.abspath(
@@ -36,6 +59,11 @@ def download_gtsrb_testdata() -> str:
     else:
         print("GTSRB test dataset is in place, you're fine.")
         print(absolute_path)
+
+    if not os.path.isfile(os.path.join(absolute_path, 'GT-final_test.csv')):
+        print("download test classes")
+        _download_and_unzip(target_path=absolute_path,
+                            download_url='http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Test_GT.zip')
 
     return absolute_path
 
