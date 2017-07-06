@@ -7,3 +7,5 @@ pillow
 scikit-image
 keras
 tensorflow
+pydot
+graphviz
