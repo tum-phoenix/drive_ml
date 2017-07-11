@@ -56,9 +56,10 @@ def generate_64x64(test=False) -> str:
         if idx % 100 == 0: sys.stdout.write('\r' + str(idx) + " pictures processed")
 
     for filepath in csv_filelist:
-        df = pd.read_csv(filepath, sep=';')
-        df2 = _transform_csv(df)
-        new_path = filepath.replace('GTSRB', 'GTSRB_64x64')
-        df2.to_csv(new_path, sep=';', index=False)
+        if not fnmatch.fnmatch(filepath, '*GT-final_test.test.csv'): # because this csv has no classes
+            df = pd.read_csv(filepath, sep=';')
+            df2 = _transform_csv(df)
+            new_path = filepath.replace('GTSRB', 'GTSRB_64x64')
+            df2.to_csv(new_path, sep=';', index=False)
 
     return new_abs_path
