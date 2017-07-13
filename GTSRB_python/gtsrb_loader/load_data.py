@@ -17,7 +17,6 @@ import csv
 import os
 import fnmatch
 
-
 # function for reading the images
 # arguments: path to the traffic sign data, for example './GTSRB/Training'
 # returns: list of images, list of corresponding labels
@@ -45,6 +44,7 @@ def get_train_data(rootpath):
     return images, labels
 """
 
+
 def load_data(path):
     images = []
     labels = []
@@ -62,3 +62,21 @@ def load_data(path):
                     except IndexError:
                         pass
     return images, labels
+
+
+def load_bounding_boxes_generator(path, batch_size: int):
+    for root, dirs, files in os.walk(path):
+        images, bounding_boxes = [], []
+        for file in files:
+            if fnmatch.fnmatch(file, '*.csv'):
+                with open(os.path.join(root, file), mode='r') as csv_file:
+                    csv_reader = csv.reader(csv_file, delimiter=';')
+                    next(csv_reader)
+                    for row in csv_reader:
+                        ppm_filepath = os.path.join(root, row[0])
+                        images.append(plt.imread(ppm_filepath))
+                        bounding_boxes.append(row[3:7])
+                        if len(images) >= batch_size:
+                            yield images, bounding_boxes
+                            images, bounding_boxes = [], []
+
