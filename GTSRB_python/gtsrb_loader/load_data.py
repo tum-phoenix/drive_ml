@@ -65,18 +65,19 @@ def load_data(path):
 
 
 def load_bounding_boxes_generator(path, batch_size: int):
-    for root, dirs, files in os.walk(path):
-        images, bounding_boxes = [], []
-        for file in files:
-            if fnmatch.fnmatch(file, '*.csv'):
-                with open(os.path.join(root, file), mode='r') as csv_file:
-                    csv_reader = csv.reader(csv_file, delimiter=';')
-                    next(csv_reader)
-                    for row in csv_reader:
-                        ppm_filepath = os.path.join(root, row[0])
-                        images.append(plt.imread(ppm_filepath))
-                        bounding_boxes.append(row[3:7])
-                        if len(images) >= batch_size:
-                            yield images, bounding_boxes
-                            images, bounding_boxes = [], []
+    while True:
+        for root, _, files in os.walk(path):
+            images, bounding_boxes = [], []
+            for file in files:
+                if fnmatch.fnmatch(file, '*.csv'):
+                    with open(os.path.join(root, file), mode='r') as csv_file:
+                        csv_reader = csv.reader(csv_file, delimiter=';')
+                        next(csv_reader)
+                        for row in csv_reader:
+                            ppm_filepath = os.path.join(root, row[0])
+                            images.append(plt.imread(ppm_filepath))
+                            bounding_boxes.append(row[3:7])
+                            if len(images) >= batch_size:
+                                yield images, bounding_boxes
+                                images, bounding_boxes = [], []
 
