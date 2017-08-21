@@ -1,0 +1,2 @@
+1. training on unabalanced set
+2. images are not scaled to have zero mean and unit variance
