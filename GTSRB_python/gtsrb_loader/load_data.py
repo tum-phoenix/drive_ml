@@ -54,7 +54,7 @@ def load_data(path):
                 with open(os.path.join(root, file), mode='r') as csv_file:
                     csv_reader = csv.reader(csv_file, delimiter=';')
                     try:
-                        next(csv_file)[7]
+                        next(csv_file)[7] # will throw an index error when there is no 7. column
                         for row in csv_reader:
                             ppm_filepath = os.path.join(root, row[0])
                             images.append(plt.imread(ppm_filepath))
