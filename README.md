@@ -6,9 +6,8 @@ There is a workstation available with all software preinstalled. Just ask the pr
 
 ## Use on own Hardware
 If you want to install it to your own device follow the following instructions:
-1. Install [Jupyter](http://jupyter.org/)
-2. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/GTSRB_python/requirements.txt) 
-3. Download GTRSB dataset and put it in the correct location (see below)
+1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/GTSRB_python/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
+2. Download GTRSB dataset and put it in the correct location (see below)
 
 
 ## Dataset location
