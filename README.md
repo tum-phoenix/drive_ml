@@ -19,8 +19,10 @@ To load the GTSRB dataset correctly in the jupyter notebook, please extract the 
 Additional files are on our server (please contact project leader).
 
 ## Structure
-- models
--- 
+- models (the trained and untrained netmodels)
+- dicts (translation into signs)
+- utilities (functions and scripts for assitence)
+
 
 ## Further ML resources
 * [TUM LDV Wiki (Convolutional Neural Networks for Image and Video Processing)](https://wiki.tum.de/display/lfdv/Convolutional+Neural+Networks+for+Image+and+Video+Processing)
