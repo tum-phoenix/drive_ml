@@ -25,5 +25,5 @@ Additional files are on our server (please contact project leader).
 
 
 ## Further Information
-* [TUM Phoenix CNN Wiki page](https://wiki.tum.de/display/phoenix/Resources%3A+Convolutional+Neural+Networks)
+* [TUM Phoenix CNN Wiki page](https://wiki.tum.de/display/phoenix/Machine+Learning)
 
