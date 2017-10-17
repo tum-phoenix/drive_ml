@@ -5,7 +5,7 @@ This is the repository for the TUM Phoenix Autonomous Drive Machine Learning app
 There is a workstation available with all software preinstalled. Just ask the project leader for an account. This is the easiest method.
 
 ## Use on own Hardware
-If you want to install it to your own device follow the following instructions:
+If you want to install it on your own device follow these instructions:
 1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
 2. Dataset will be loaded automatically when running the Jupyter notebooks
 
