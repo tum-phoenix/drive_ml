@@ -1,0 +1,11 @@
+numpy
+matplotlib
+jupyter
+pandas
+urllib3
+pillow
+scikit-image
+keras
+tensorflow
+pydot
+graphviz
