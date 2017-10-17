@@ -1,5 +1,7 @@
 # Machine Learning
 This is the repository for the TUM Phoenix Autonomous Drive Machine Learning applications. 
+* [Literature (TUM Phoenix Wiki)](https://wiki.tum.de/display/phoenix/Machine+Learning)
+* [Todo List (Issues page)](https://github.com/tum-phoenix/drive_ml/issues)
 
 ## Use on TUM Phoenix Hardware
 There is a workstation available with all software preinstalled and decent training hardware (Nvidia GTX1070 8GB). Just ask the project leader for an account. Access only from TUM University network (or use LRZ-VPN).
@@ -17,9 +19,3 @@ GTSRB Dataset will be loaded automatically when running the Jupyter notebooks. A
 - `models` (trained and untrained netmodels)
 - `dicts` (translation: signs <-> category number)
 - `utilities` (utility functions and scripts for data processing, training helpers, ...)
-
-## Todo List
-* [Issues page](https://github.com/tum-phoenix/drive_ml/issues)
-
-## Literature
-* [TUM Phoenix Wiki](https://wiki.tum.de/display/phoenix/Machine+Learning)
