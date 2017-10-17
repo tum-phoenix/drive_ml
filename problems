@@ -1,5 +1,0 @@
-1. training on unabalanced set
-2. images are not scaled to have zero mean and unit variance
-3. GTSRB is color, zero/background class is grayscale
-4. Confidence is too high ?
-5. Zero/Background images are just being resized to 64,64, which we wont do in real-life.
