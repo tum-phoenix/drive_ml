@@ -2,28 +2,24 @@
 This is the repository for the TUM Phoenix Autonomous Drive Machine Learning applications. 
 
 ## Use on TUM Phoenix Hardware
-There is a workstation available with all software preinstalled. Just ask the project leader for an account. This is the easiest method.
+There is a workstation available with all software preinstalled and decent training hardware (Nvidia GTX1070 8GB). Just ask the project leader for an account. Access only from TUM University network (or use LRZ-VPN).
 
 ## Use on own Hardware
 If you want to install it on your own device follow these instructions:
 1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
-2. Dataset will be loaded automatically when running the Jupyter notebooks
+2. Todo: Setup Git or Jupyter Hooks
+3. Start Jupyter notebook and start editing files
 
 ## Dataset location
-To load the GTSRB dataset correctly in the jupyter notebook, please extract the file at the same level as your ml repo, so you should have something like (a cell can also do this for you):
+GTSRB Dataset will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment.
 
-`../drive_ml`
+## Structure of sign recognition folder
+- `models` (trained and untrained netmodels)
+- `dicts` (translation: signs <-> category number)
+- `utilities` (utility functions and scripts for data processing, training helpers, ...)
 
-`../GTSRB/Final_Training/..`
+## Todo List
+* [Issues page](https://github.com/tum-phoenix/drive_ml/issues)
 
-Additional files are on our server (please contact project leader).
-
-## Structure
-- `models` (the trained and untrained netmodels)
-- `dicts` (translation into signs)
-- `utilities` (functions and scripts for assitence)
-
-
-## Further Information
+## Literature
 * [TUM Phoenix Wiki](https://wiki.tum.de/display/phoenix/Machine+Learning)
-
