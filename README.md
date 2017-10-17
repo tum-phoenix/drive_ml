@@ -25,5 +25,5 @@ Additional files are on our server (please contact project leader).
 
 
 ## Further Information
-* [TUM Phoenix CNN Wiki page](https://wiki.tum.de/display/phoenix/Machine+Learning)
+* [TUM Phoenix Wiki](https://wiki.tum.de/display/phoenix/Machine+Learning)
 
