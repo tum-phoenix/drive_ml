@@ -6,9 +6,8 @@ There is a workstation available with all software preinstalled. Just ask the pr
 
 ## Use on own Hardware
 If you want to install it to your own device follow the following instructions:
-1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/GTSRB_python/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
-2. Download GTRSB dataset and put it in the correct location (see below)
-
+1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
+2. Dataset will be loaded automatical when running the ipython notebooks.
 
 ## Dataset location
 To load the GTSRB dataset correctly in the jupyter notebook, please extract the file at the same level as your ml repo, so you should have something like (a cell can also do this for you):
@@ -17,6 +16,11 @@ To load the GTSRB dataset correctly in the jupyter notebook, please extract the 
 
 `../GTSRB/Final_Training/..`
 
+Additional files are on our server (please contact project leader).
+
+## Structure
+- models
+-- 
 
 ## Further ML resources
 * [TUM LDV Wiki (Convolutional Neural Networks for Image and Video Processing)](https://wiki.tum.de/display/lfdv/Convolutional+Neural+Networks+for+Image+and+Video+Processing)
