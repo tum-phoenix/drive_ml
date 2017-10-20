@@ -28,15 +28,13 @@ def _download_and_unzip(target_path, download_url):
 
 
 
-def download_gtsrb_testdata() -> str:
-    # convention: we store our GTSRB folder at the same height as the ML repo
-    absolute_path = os.path.abspath(
-        os.path.join(os.path.realpath('.'), '..', '..', 'GTSRB', 'Final_Test', 'Images'))
+def download_gtsrb_testdata(path) -> str: 
+    # get absolute path
+    absolute_path = os.path.abspath(os.path.join(path, 'GTSRB', 'Final_Training', 'Images'))
 
     if not os.path.isdir(absolute_path):
         print("You do not have the GTSRB test dataset in the desired location, downloading if for you")
-        folder_path = os.path.join(os.path.realpath('.'), '../../')
-        filepath = os.path.join(folder_path, 'GTSRB_Final_Test_Images.zip')
+        filepath = os.path.join(path, 'GTSRB_Final_Test_Images.zip')
         urlfile = 'http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Test_Images.zip'
         req = urllib.request.urlopen(urlfile)
         total_size = int(req.getheader('Content-Length').strip())
@@ -50,7 +48,7 @@ def download_gtsrb_testdata() -> str:
                 if not chunk: break
                 fp.write(chunk)
         zip_ref = zipfile.ZipFile(filepath, 'r')
-        zip_ref.extractall(folder_path)
+        zip_ref.extractall(path)
         zip_ref.close()
         os.remove(filepath)
         sys.stdout.write('\n')
@@ -68,14 +66,12 @@ def download_gtsrb_testdata() -> str:
     return absolute_path
 
 
-def download_gtsrb() -> str:
-    # convention: we store our GTSRB folder at the same height as the ML repo
-    absolute_path = os.path.abspath(
-        os.path.join(os.path.realpath('.'), '..', '..', 'GTSRB', 'Final_Training', 'Images'))
+def download_gtsrb(path) -> str:
+    # get absolute path
+    absolute_path = os.path.abspath(os.path.join(path, 'GTSRB', 'Final_Training', 'Images'))
     if not os.path.isdir(absolute_path):
         print("You do not have the GTSRB dataset in the desired location, downloading if for you")
-        folder_path = os.path.join(os.path.realpath('.'), '../../')
-        filepath = os.path.join(folder_path, 'GTSRB_Final_Training_Images.zip')
+        filepath = os.path.join(path, 'GTSRB_Final_Training_Images.zip')
         urlfile = 'http://benchmark.ini.rub.de/Dataset/GTSRB_Final_Training_Images.zip'
         req = urllib.request.urlopen(urlfile)
         total_size = int(req.getheader('Content-Length').strip())
@@ -89,7 +85,7 @@ def download_gtsrb() -> str:
                 if not chunk: break
                 fp.write(chunk)
         zip_ref = zipfile.ZipFile(filepath, 'r')
-        zip_ref.extractall(folder_path)
+        zip_ref.extractall(path)
         zip_ref.close()
         os.remove(filepath)
         sys.stdout.write('\n')
