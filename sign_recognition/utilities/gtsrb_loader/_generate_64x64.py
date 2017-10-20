@@ -29,9 +29,9 @@ def _transform_csv(df: pd.DataFrame) -> pd.DataFrame:
     return df2
 
 
-def generate_64x64(test=False) -> str:
+def generate_64x64(path, test=False) -> str:
     pixels = 64
-    absolute_path = download_gtsrb_testdata() if test else download_gtsrb()
+    absolute_path = download_gtsrb_testdata(path) if test else download_gtsrb(path)
     new_abs_path = absolute_path.replace('GTSRB', 'GTSRB_64x64')
     if os.path.isdir(new_abs_path):
         print("Folder already exists.")
