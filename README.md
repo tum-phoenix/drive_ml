@@ -33,6 +33,7 @@ c.FileContentsManager.pre_save_hook = scrub_output_pre_save
 GTSRB Dataset will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment.
 
 ## Structure of sign recognition folder
+- `logs` (tensorboard log files)
 - `models` (trained and untrained netmodels)
 - `dicts` (translation: signs <-> category number)
 - `utilities` (utility functions and scripts for data processing, training helpers, ...)
