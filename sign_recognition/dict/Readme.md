@@ -1,5 +1,5 @@
 # CaroloCup 2018 Signs
-| German-Name | Description | StVO Nr. | ClassID (GTRSB if exists) | Picture |
+| German-Name | Description | StVO Nr. | ClassID (same as GTRSB if exists) | Picture |
 | :---:| :---: | :---: | :---: |  :---: |
 | Vorfahrt Gewähren | On intersections give way to crossing traffic | 205 | 00013 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-205.png" width="55" height="48">|
 | Stop Zeichen | Stop for at least 3 seconds on an intersection, before moving on | 206 | 00014 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-206.png" width="48" height="48">|
