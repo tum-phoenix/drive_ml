@@ -21,6 +21,7 @@
 | Parken Bereich | Parking zone | 314 | 00109 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-314.png" width="48" height="48">|
 | Kraftfahrtstraße Anfang | expressway begin  | 331.1 | 00110 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.1.png" width="48" height="48">|
 | Kraftfahrtstraße Ende | expressway end  | 331.2 | 00111 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.2.png" width="48" height="48">|
+| - | zero class image  | - | 00043 | |
 
 # GTRSB Signs
 | GTRSB Nr. | Picture |
