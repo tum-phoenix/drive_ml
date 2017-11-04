@@ -1,8 +1,8 @@
 # Overview of all signs
-| German-Name | Description | StVO Nr. | GTRSB Number | Picture |
+| German-Name | Description | StVO Nr. | GTRSB Nr. | Picture |
 | :---:| :---: | :---: | :---: |  :---: |
 | Vorfahrt Gewähren | On intersections give way to crossing traffic | 205 | 00013 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-205.png" width="55" height="48">|
-| Stop Zeichen | Stop for at least 3 seconds on an intersection, bevore moving on | 206 | 00014 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-206.png" width="48" height="48">|
+| Stop Zeichen | Stop for at least 3 seconds on an intersection, before moving on | 206 | 00014 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-206.png" width="48" height="48">|
 | Gegenverkehr Vorrang gewähren | Barred area. Let oncoming traffic pass  | 208 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-208.png" width="48" height="48">|
 | Vorgeschriebene Fahrtrichtung Links | Turn left on intersection | 209-10 | 00034 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-209-10.png" width="48" height="48">|
 | Vorgeschriebene Fahrtrichtung Rechts | Turn right on intersection  | 209-20 | 00033 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-209-20.png" width="48" height="48">|
