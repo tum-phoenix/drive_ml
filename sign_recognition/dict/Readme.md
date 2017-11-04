@@ -1,26 +1,26 @@
 # CaroloCup 2018 Signs
-| German-Name | Description | StVO Nr. | GTRSB Nr. | Picture |
+| German-Name | Description | StVO Nr. | ClassID (GTRSB if exists) | Picture |
 | :---:| :---: | :---: | :---: |  :---: |
 | Vorfahrt Gewähren | On intersections give way to crossing traffic | 205 | 00013 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-205.png" width="55" height="48">|
 | Stop Zeichen | Stop for at least 3 seconds on an intersection, before moving on | 206 | 00014 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-206.png" width="48" height="48">|
-| Gegenverkehr Vorrang gewähren | Barred area. Let oncoming traffic pass  | 208 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-208.png" width="48" height="48">|
+| Gegenverkehr Vorrang gewähren | Barred area. Let oncoming traffic pass  | 208 | 00100 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-208.png" width="48" height="48">|
 | Vorgeschriebene Fahrtrichtung Links | Turn left on intersection | 209-10 | 00034 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-209-10.png" width="48" height="48">|
 | Vorgeschriebene Fahrtrichtung Rechts | Turn right on intersection  | 209-20 | 00033 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-209-20.png" width="48" height="48">|
 | 30 Zone Anfang | Start of speed limit zone  | 274.1 | 00001 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-274.1.png" width="48" height="48">|
-| 30 Zone Ende | End of speed limit zone  | 274.2 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-274.2.png" width="48" height="48">|
+| 30 Zone Ende | End of speed limit zone  | 274.2 | 00101 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-274.2.png" width="48" height="48">|
 | Absolutes Überholverbot Anfang | No passing zone start  | 276 | 00009 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-276.png" width="48" height="48">|
 | Absolutes Überholverbot Ende | No passing zone end  | 280 | 00041 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-280.png" width="48" height="48">|
 | Vorfahrtstraße | Priority on next intersections (until different sign).  | 306 | 00012 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-306.png" width="48" height="48">|
-| Fußgängerüberweg | Crosswalk: Pedestrians have priority  | 350-10 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-350-10.png" width="48" height="48">|
-| Richtungstafel Kurve links | Sharp turn left  | 625-10 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-10.png" width="48" height="48">|
-| Richtungstafel Kurve links | Even sharper turn left  | 625-11 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-11.png" width="150" height="48">|
-| Richtungstafel Kurve rechts | Sharp turn right | 625-20 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-20.png" width="48" height="48">|
-| Richtungstafel Kurve rechts | Even sharper turn right  | 625-21 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-21.png" width="150" height="48">|
-| Gefälle 10% | Step downhill of 10% | 108-10 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-108-10.png" width="55" height="48">|
-| Steigung 10% | Step uphill of 10% | 110-10 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-110-10.png" width="55" height="48">|
-| Parken Bereich | Parking zone | 314 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-314.png" width="48" height="48">|
-| Kraftfahrtstraße Anfang | expressway begin  | 331.1 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.1.png" width="48" height="48">|
-| Kraftfahrtstraße Ende | expressway end  | 331.2 | - |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.2.png" width="48" height="48">|
+| Fußgängerüberweg | Crosswalk: Pedestrians have priority  | 350-10 | 00102 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-350-10.png" width="48" height="48">|
+| Richtungstafel Kurve links | Sharp turn left  | 625-10 | 00103 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-10.png" width="48" height="48">|
+| Richtungstafel Kurve links | Even sharper turn left  | 625-11 | 00104 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-11.png" width="150" height="48">|
+| Richtungstafel Kurve rechts | Sharp turn right | 625-20 | 00105 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-20.png" width="48" height="48">|
+| Richtungstafel Kurve rechts | Even sharper turn right  | 625-21 | 00106 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-625-21.png" width="150" height="48">|
+| Gefälle 10% | Step downhill of 10% | 108-10 | 00107 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-108-10.png" width="55" height="48">|
+| Steigung 10% | Step uphill of 10% | 110-10 | 00108 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-110-10.png" width="55" height="48">|
+| Parken Bereich | Parking zone | 314 | 00109 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-314.png" width="48" height="48">|
+| Kraftfahrtstraße Anfang | expressway begin  | 331.1 | 00110 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.1.png" width="48" height="48">|
+| Kraftfahrtstraße Ende | expressway end  | 331.2 | 00111 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.2.png" width="48" height="48">|
 
 # GTRSB Signs
 | GTRSB Nr. | Picture |
