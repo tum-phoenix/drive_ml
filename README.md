@@ -29,8 +29,8 @@ c.FileContentsManager.pre_save_hook = scrub_output_pre_save
 ```
 4. Start Jupyter notebook and start editing files
 
-## Dataset location
-GTSRB Dataset will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment.
+## Datasets
+We mainly use GTSRB Dataset. It will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment. Please make sure they have the same structure of [GTSRB structure](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset#Structure).
 
 ## Structure of sign recognition folder
 - `logs` (tensorboard log files)
