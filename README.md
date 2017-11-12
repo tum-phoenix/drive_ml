@@ -10,24 +10,8 @@ There is a workstation available with all software preinstalled and decent train
 If you want to install it on your own device follow these instructions:
 1. Install [requirements](https://github.com/tum-phoenix/drive_ml/blob/master/requirements.txt) using pip3 (`sudo pip3 install -r requirements.txt`)
 2. login with your username and generate config `jupyter notebook --generate-config`
-3. add following [File Save Hook](http://jupyter-notebook.readthedocs.io/en/stable/extending/savehooks.html) to your config `~/.jupyter/jupyter_notebook_config.py`:
-```
-def scrub_output_pre_save(model, **kwargs):
-    """scrub output before saving notebooks"""
-
-    # only run on nbformat v4
-    if model['nbformat'] != 4:
-        return
-
-    for cell in model['cells']:
-        if cell['cell_type'] != 'code':
-            continue
-        cell['outputs'] = []
-        cell['execution_count'] = None
-
-c.FileContentsManager.pre_save_hook = scrub_output_pre_save
-```
-4. Start Jupyter notebook and start editing files
+3. add [File Save Hook](http://jupyter-notebook.readthedocs.io/en/stable/extending/savehooks.html) to your config 
+4. Start Jupyter notebook with `--config=/path/to/your/config` and start editing files
 
 ## Datasets
 We mainly use the GTSRB Dataset. It will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment. Please make sure they have the same structure of [GTSRB](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset#Structure).
