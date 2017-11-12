@@ -32,8 +32,8 @@ c.FileContentsManager.pre_save_hook = scrub_output_pre_save
 ## Datasets
 We mainly use the GTSRB Dataset. It will be loaded automatically when running the Jupyter notebooks. Additional files are on the TUM Phoenix server (please contact project leader). You may need to change the paths to your environment. Please make sure they have the same structure of [GTSRB](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset#Structure).
 
+Don't add big files (more than 10MByte) to the git repository. Store them on the server instead.
+
 ## Structure of sign recognition folder
-- `logs` (tensorboard log files)
-- `models` (trained and untrained netmodels)
 - `dicts` (translation: signs <-> category number)
 - `utilities` (utility functions and scripts for data processing, training helpers, ...)
