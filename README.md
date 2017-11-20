@@ -38,3 +38,5 @@ We mainly use the GTSRB Dataset. It will be loaded automatically when running th
 Don't add big files (more than 10MByte) to the git repository. Store them on the server instead.
 - `dicts` (translation: signs <-> category number)
 - `utilities` (utility functions and scripts for data processing, training helpers, ...)
+
+
