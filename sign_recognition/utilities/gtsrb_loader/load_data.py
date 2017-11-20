@@ -63,6 +63,26 @@ def load_data(path):
                         pass
     return images, labels
 
+def load_data_withBB(path):
+    images = []
+    labels = []
+    boundBox = []
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if fnmatch.fnmatch(file, '*.csv'):
+                with open(os.path.join(root, file), mode='r') as csv_file:
+                    csv_reader = csv.reader(csv_file, delimiter=';')
+                    try:
+                        next(csv_file)[7] # will throw an index error when there is no 7. column
+                        for row in csv_reader:
+                            ppm_filepath = os.path.join(root, row[0])
+                            images.append(plt.imread(ppm_filepath))
+                            labels.append(row[7])
+                            boundBox.append([row[3],row[4],row[5],row[6]])
+                    except IndexError:
+                        pass
+    return images, labels, boundBox
+
 
 def load_bounding_boxes_generator(path, batch_size: int):
     while True:
