@@ -6,7 +6,7 @@ from ._generate_64x64 import generate_64x64
 def get_folderpath(subset: str, original_images=False) -> str:
     
     # check if we are on phoenix workstation
-    phx_srv_path = '/data_on_server/Images'
+    phx_srv_path = '/data/Images'
     if os.path.isdir(phx_srv_path):
         path = phx_srv_path
     else:
