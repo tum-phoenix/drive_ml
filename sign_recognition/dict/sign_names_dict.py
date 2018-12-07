@@ -50,17 +50,24 @@ sign_name_GTSRB_full_dict = {15: 'Durchfahrt verboten',
 
 # all carolo cup signs currently in use
 sign_name_carolo_dict = {
-	1: '30 Zone Anfang (speed limit start)',
+	0: '20 Zone Anfang (speed limit 20 start)',
+	1: '30 Zone Anfang (speed limit 30 start)',
+	2: '50 Zone Anfang (speed limit 50 start)',
+	3: '60 Zone Anfang (speed limit 60 start)',
+	4: '70 Zone Anfang (speed limit 70 start)',
+	5: '80 Zone Anfang (speed limit 80 start)',
 	9: 'Absolutes Überholverbot Anfang (no passing zone start)',
 	12: 'Vorfahrtstraße (priority on next intersections)',
 	13: 'Vorfahrt Gewähren (give way to incoming)',
 	14: 'Stop Zeichen (stop for at least 3 sec)',
 	33: 'Vorgeschriebene Fahrtrichtung Rechts (turn right on intersection)',
 	34: 'Vorgeschriebene Fahrtrichtung Links (turn left on intersection)',
+	38: 'Vorgeschriebene Vorbeifahrt rechts (pass by on right)',
+	39: 'Vorgeschriebene Vorbeifahrt links (pass by on left)',
 	41: 'Absolutes Überholverbot Ende (no passing zone end)',
 	43: 'Nullklasse (zero class)',
 	100: 'Gegenverkehr Vorrang gewähren (Barred area, let oncoming pass)',
-	101: '30 Zone Ende (end of speed limit)',
+	101: 'Zone Ende (end of speed limit)',
 	102: 'Fußgängerüberweg (crosswalk)',
 	103: 'Richtungstafel Kurve links (sharp turn left)',
 	104: 'Richtungstafel Kurve links (even sharper turn left)',
@@ -70,7 +77,10 @@ sign_name_carolo_dict = {
 	108: 'Steigung 10% (uphill 10%)',
 	109: 'Parken Bereich (parking zone)',
 	110: 'Kraftfahrtstraße Anfang (expressway begin)',
-	111: 'Kraftfahrtstraße Ende (expressway end)'
+	111: 'Kraftfahrtstraße Ende (expressway end)',
+	112: '10 Zone Anfang (speed limit 10 start)',
+	113: '40 Zone Anfang (speed limit 40 start)',
+	115: '90 Zone Anfang (speed limit 90 start)'
 }
 
 with open('sign_names_dict.pkl', 'wb') as f:
