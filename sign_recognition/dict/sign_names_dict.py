@@ -80,7 +80,8 @@ sign_name_carolo_dict = {
 	111: 'Kraftfahrtstraße Ende (expressway end)',
 	112: '10 Zone Anfang (speed limit 10 start)',
 	113: '40 Zone Anfang (speed limit 40 start)',
-	115: '90 Zone Anfang (speed limit 90 start)'
+	114: '90 Zone Anfang (speed limit 90 start)',
+	115: 'Pedestrian'
 }
 
 with open('sign_names_dict.pkl', 'wb') as f:
