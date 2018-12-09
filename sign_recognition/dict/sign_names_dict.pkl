@@ -18,19 +18,19 @@ sI5
 S'80 Zone Anfang (speed limit 80 start)'
 p6
 sI9
-S'Absolutes \xc3\x9cberholverbot Anfang (no passing zone start)'
+S'Absolutes Ueberholverbot Anfang (no passing zone start)'
 p7
 sI12
-S'Vorfahrtstra\xc3\x9fe (priority on next intersections)'
+S'Vorfahrtstrasse (priority on next intersections)'
 p8
 sI13
-S'Vorfahrt Gew\xc3\xa4hren (give way to incoming)'
+S'Vorfahrt Gewaehren (give way to incoming)'
 p9
 sI14
 S'Stop Zeichen (stop for at least 3 sec)'
 p10
 sI107
-S'Gef\xc3\xa4lle 10% (downhill 10%)'
+S'Gefaelle 10% (downhill 10%)'
 p11
 sI103
 S'Richtungstafel Kurve links (sharp turn left)'
@@ -42,7 +42,7 @@ sI34
 S'Vorgeschriebene Fahrtrichtung Links (turn left on intersection)'
 p14
 sI100
-S'Gegenverkehr Vorrang gew\xc3\xa4hren (Barred area, let oncoming pass)'
+S'Gegenverkehr Vorrang gewaehren (Barred area, let oncoming pass)'
 p15
 sI101
 S'Zone Ende (end of speed limit)'
@@ -57,7 +57,7 @@ sI104
 S'Richtungstafel Kurve links (even sharper turn left)'
 p19
 sI41
-S'Absolutes \xc3\x9cberholverbot Ende (no passing zone end)'
+S'Absolutes Ueberholverbot Ende (no passing zone end)'
 p20
 sI106
 S'Richtungstafel Kurve rechts (even sharper turn right)'
@@ -72,10 +72,10 @@ sI109
 S'Parken Bereich (parking zone)'
 p24
 sI110
-S'Kraftfahrtstra\xc3\x9fe Anfang (expressway begin)'
+S'Kraftfahrtstrasse Anfang (expressway begin)'
 p25
 sI111
-S'Kraftfahrtstra\xc3\x9fe Ende (expressway end)'
+S'Kraftfahrtstrasse Ende (expressway end)'
 p26
 sI112
 S'10 Zone Anfang (speed limit 10 start)'
@@ -93,6 +93,6 @@ sI105
 S'Richtungstafel Kurve rechts (sharp turn right)'
 p31
 sI102
-S'Fu\xc3\x9fg\xc3\xa4nger\xc3\xbcberweg (crosswalk)'
+S'Fussgaengerueberweg (crosswalk)'
 p32
 s.
