@@ -60,6 +60,34 @@ gtsrb_to_carolo = {
 	41: 41
 }
 
+LISA_to_carolo = {
+	'stop': 14
+}
+
+# using the short number naming used in the _cleaned.txt files
+BTSD_to_carolo = {
+	31: 13,
+	36: 100,
+	41: 12,
+	61: 9,
+	62: 41,
+	16: 107,
+	25: 108,
+# parkschild (87) is etwas breiter
+	87: 109,
+# Fahrzeug sieht leicht anders auf dem Kraftfahrstrassenschild aus (183, 110)
+	183: 110,
+	110: 111,
+	151: 102,
+	77: 34
+}
+
+STS_to_carolo = {
+	'STOP': 14,
+	'PEDESTRIAN_CROSSING': 115,
+	'PRIORITY_ROAD': 12,
+	'PASS_RIGHT_SIDE': 38
+}
 
 # all carolo cup signs currently in use
 sign_name_carolo_dict = {
@@ -96,7 +124,7 @@ sign_name_carolo_dict = {
 	115: 'Pedestrian'
 }
 
-with open('sign_names_dict.pkl', 'wb') as f:
-	pickle.dump(sign_name_carolo_dict, f)
-	
+if __name__ == '__main__':
+	with open('sign_names_dict.pkl', 'wb') as f:
+		pickle.dump(sign_name_carolo_dict, f)
 
