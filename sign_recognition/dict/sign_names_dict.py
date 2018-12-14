@@ -84,7 +84,7 @@ BTSD_to_carolo = {
 
 STS_to_carolo = {
 	'STOP': 14,
-	'PEDESTRIAN_CROSSING': 115,
+	'PEDESTRIAN_CROSSING': 102,
 	'PRIORITY_ROAD': 12,
 	'PASS_RIGHT_SIDE': 38
 }
