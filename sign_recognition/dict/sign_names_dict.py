@@ -89,6 +89,27 @@ STS_to_carolo = {
 	'PASS_RIGHT_SIDE': 38
 }
 
+rtsd_to_carolo = {
+	'1_13': 107,
+	'1_14': 108,
+	'2_4': 13,
+	'2_1': 12,
+	'2_5': 14,
+	'2_6': 100,
+	'3_20':	9,
+	'3_21':	41,
+	'3_24_n': 2,
+	'3_25_n': 101,
+	'4_1_2': 33,
+	'4_1_3': 34,
+	'4_2_1': 38,
+	'4_2_2': 39,
+	'5_19_1': 102,
+	'6_4': 109,
+	'5_3': 110,
+	'5_4': 111
+}
+
 # all carolo cup signs currently in use
 sign_name_carolo_dict = {
 	0: '20 Zone Anfang (speed limit 20 start)',
