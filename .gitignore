@@ -203,4 +203,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.csv#
 # End of https://www.gitignore.io/api/linux,python,pycharm,windows
