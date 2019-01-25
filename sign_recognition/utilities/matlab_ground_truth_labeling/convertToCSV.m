@@ -1,8 +1,8 @@
 %% converts groundTruth.mat to *.csv file
 
 % parameters
-out_file="~/Downloads/mount/GT-00000.csv";
-in_file="~/Downloads/mount/labels.mat";
+out_file="2019-01-20-15-59-41.csv";
+in_file="2019-01-20-15-59-41.mat";
 
 image_width=640;
 image_height=480;
@@ -24,20 +24,22 @@ for i=1:size(gTruth.LabelData, 1)
        if not(isempty(cell2mat(gTruth.LabelData(i,j).Variables)))
            has_label=true;
            roi=cell2mat(gTruth.LabelData(i,j).Variables);
-           fprintf(fileID,'%05.0f.png,', i);
-           fprintf(fileID,'%d,', image_width);
-           fprintf(fileID,'%d,', image_height);
-           fprintf(fileID,'%d,', round(roi(1)));
-           fprintf(fileID,'%d,', round(roi(2)));
-           fprintf(fileID,'%d,', round(roi(1)+roi(3)));
-           fprintf(fileID,'%d,', round(roi(2)+roi(4)));
-           fprintf(fileID,'%d' , str2double(cell2mat(table2array(gTruth.LabelDefinitions(j,3)))));
-           fprintf(fileID,'\n');
+           for k=1:size(roi,1)
+               fprintf(fileID,'frame%04.0f.jpg,', i-1);
+               fprintf(fileID,'%d,', image_width);
+               fprintf(fileID,'%d,', image_height);
+               fprintf(fileID,'%d,', round(roi(k,1)));
+               fprintf(fileID,'%d,', round(roi(k,2)));
+               fprintf(fileID,'%d,', round(roi(k,1)+roi(k,3)));
+               fprintf(fileID,'%d,', round(roi(k,2)+roi(k,4)));
+               fprintf(fileID,'%d' , str2double(cell2mat(table2array(gTruth.LabelDefinitions(j,3)))));
+               fprintf(fileID,'\n');
+           end
        end
        
        % no label for this picture found
        if not(has_label) && j == size(gTruth.LabelData, 2)
-           fprintf(fileID,'%05.0f.png,', i);
+           fprintf(fileID,'frame%04.0f.jpg,', i-1);
            fprintf(fileID,'%d,', image_width);
            fprintf(fileID,'%d,', image_height);
            fprintf(fileID,'%d,', 0);
