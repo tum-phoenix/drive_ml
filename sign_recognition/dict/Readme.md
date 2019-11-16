@@ -32,6 +32,7 @@
 | Kraftfahrtstraße Anfang | expressway begin  | 331.1 | 00110 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.1.png" width="48" height="48">|
 | Kraftfahrtstraße Ende | expressway end  | 331.2 | 00111 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.2.png" width="48" height="48">|
 | Fußgänger | pedestrian  | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/pedestrian.png" width="30" height="48">|
+| Geschwindigkeitsbegrenzungszone Zahlen 0-9 | speed limit-zone digits 0-9  | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_digits_1-9.png" width="30" height="48">|
 | - | zero class image  | - | 00043 | |
 
 # GTRSB Signs
