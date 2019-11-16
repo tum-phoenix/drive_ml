@@ -36,7 +36,7 @@
 | Ende Geschwindigkeitsbegrenzungszone | end of speed limit-zone | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_end.png" width="233" height="48">|
 | Links abbiegen | turn right ahead | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/turn_left_ahead.png" width="233" height="48">|
 | Rechts abbiegen | turn left ahead | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_right_ahead.png" width="233" height="48">|
-| Zebrastreifen | crosswalk | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/crosswalk.png" width="48" height="48">|
+| Zebrastreifen | crosswalk | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/sign_recognition/images/crosswalk.png" width="48" height="48">|
 | Gesperrter Bereich | barred area | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/barred_area.png" width="175" height="30">|
 | - | zero class image  | - | 00043 | |
 
