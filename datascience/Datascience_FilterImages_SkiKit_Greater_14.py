@@ -19,7 +19,6 @@ from shutil import copyfile
 
 # 2. Specify constants
 folder_input = r'<PATH_INPUT_FOLDER>'
-folder_input = r'C:\Users\Christiaan\Dropbox\6_PROJEKTE\1_PROGRAMMIEREN\Project_Phoenix\images1'
 folder_output = os.path.join(folder_input, 'output')
 threshold_relAreaLabels = 0.005; # what should the minimum relative area of a label in an image be?
 threshold_imageSimilarity = 0.5;
