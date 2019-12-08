@@ -8,7 +8,9 @@
 #  - python -m pip install scikit-image opencv-python imutils
 
 # 1. Import the necessary packages
-from skimage import metrics
+from skimage import metrics      #Required for skimage >14
+#from skimage import measure     #Required for skimage <=14
+
 import cv2
 import pandas as pd
 import glob
@@ -89,7 +91,8 @@ for index, row in df.iterrows():
             image_grey_curr = cv2.cvtColor(image_curr, cv2.COLOR_BGR2GRAY)
 
             # Compute the Structural Similarity Index (SSIM) between the two
-            (score, diff) = metrics.structural_similarity(image_grey_prev, image_grey_curr, full=True)
+            (score, diff) = metrics.structural_similarity(image_grey_prev, image_grey_curr, full=True)  #Required for skimage >14
+            #(score, diff) = measure.compare_ssim (image_grey_prev, image_grey_curr, full=True)         #Required for skimage <=14
             #print(file_image_prev)
             #print(file_image_curr)
             #print(score)
