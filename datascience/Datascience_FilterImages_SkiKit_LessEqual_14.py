@@ -11,6 +11,9 @@
 #from skimage import metrics      #Required for skimage >14
 from skimage import measure     #Required for skimage <=14
 
+import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+
 import cv2
 import pandas as pd
 import glob
@@ -18,7 +21,7 @@ import os
 from shutil import copyfile
 
 # 2. Specify constants
-folder_input = r'<PATH_INPUT_FOLDER>'
+folder_input = r'/data_2/synthetic_data/rendered_scenes/wooden_lounge/rgb'
 folder_output = os.path.join(folder_input, 'output')
 threshold_relAreaLabels = 0.005; # what should the minimum relative area of a label in an image be?
 threshold_imageSimilarity = 0.5;
@@ -29,7 +32,7 @@ if not os.path.exists(folder_output):
 
 # 4. Load the data in a dataframe
 df = pd.DataFrame(columns=['basename','label_exist','label_area_min','label_area_ok'])
-for fn in glob.glob(folder_input + '\*'): 
+for fn in glob.glob(os.path.join(folder_input, '*')): 
     #add restriction: extension
     if '.jpg' in os.path.basename(fn) or '.png' in os.path.basename(fn):  
         #print(os.path.basename(fn))
@@ -95,7 +98,7 @@ for index, row in df.iterrows():
             (score, diff) = measure.compare_ssim (image_grey_prev, image_grey_curr, full=True)         #Required for skimage <=14
             #print(file_image_prev)
             #print(file_image_curr)
-            #print(score)
+            print('Filename {} has score: {}'.format(row['basename'], score))
             if score < threshold_imageSimilarity:
                 file_image_prev = file_image_curr
                 copyfile(file_image_curr, os.path.join(folder_output,row['basename']))
