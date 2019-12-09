@@ -25,15 +25,17 @@ class ImageCreator():
         self.bridge = CvBridge()
 
         # Open bag file.
+        img_idx = 0
         with rosbag.Bag(filename, 'r') as bag:
-            for idx, (topic, msg, t) in tqdm(enumerate(bag.read_messages())):
+            for _, (topic, msg, t) in tqdm(enumerate(bag.read_messages())):
                 if topic == '/camera/image_raw':
                     try:
                         cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
                     except CvBridgeError, e:
                         print e
-                    image_name = os.path.join(save_dir, '{}.png'.format(idx))
+                    image_name = os.path.join(save_dir, '{}.png'.format(img_idx))
                     cv2.imwrite(image_name, cv_image)
+                    img_idx += 1
 
 if __name__ == '__main__':
      image_creator = ImageCreator()
