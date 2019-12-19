@@ -28,7 +28,7 @@ class ImageCreator():
         img_idx = 0
         with rosbag.Bag(filename, 'r') as bag:
             for _, (topic, msg, t) in tqdm(enumerate(bag.read_messages())):
-                if topic == '/camera/image_raw':
+                if topic == 'camera/image_raw': #down camera 'camera1/color/image_raw'
                     try:
                         cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
                     except CvBridgeError, e:
