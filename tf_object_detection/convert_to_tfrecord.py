@@ -159,6 +159,7 @@ def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_
     label_map_dict = label_map_util.get_label_map_dict(label_map_path, use_display_name=True)
 
     images = tf.io.gfile.listdir(image_dir)
+    images = [image for image in images if image.endswith('.png')]
     shuffle(images)
 
     split_train = 0.7
