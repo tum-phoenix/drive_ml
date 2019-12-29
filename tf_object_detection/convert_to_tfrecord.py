@@ -111,10 +111,10 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
 def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
     idx = 0
     record_idx = 0
-    num_total_records = len(images) % images_per_record + 1
+    num_total_records = len(images) // images_per_record + 1
     writer = tf.python_io.TFRecordWriter(os.path.join(path,
                                                       '{}_{:04d}_of_{:04d}'.format(phase,
-                                                                                   record_idx + 1,
+                                                                                   record_idx,
                                                                                    num_total_records)))
 
     for img_name in images:
@@ -124,7 +124,7 @@ def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir
             writer.close()
             writer = tf.python_io.TFRecordWriter(os.path.join(path,
                                                               '{}_{:04d}_of_{:04d}'.format(phase,
-                                                                                           record_idx + 1,
+                                                                                           record_idx,
                                                                                            num_total_records)))
 
         if img_name not in img_to_obj.keys():
