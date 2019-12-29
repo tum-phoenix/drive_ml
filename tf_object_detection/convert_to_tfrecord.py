@@ -108,11 +108,38 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     return example
 
 
-def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_map_path):
-    train_writer = tf.python_io.TFRecordWriter(os.path.join(output_path, 'train.tfrecord'))
-    val_writer = tf.python_io.TFRecordWriter(os.path.join(output_path, 'val.tfrecord'))
-    test_writer = tf.python_io.TFRecordWriter(os.path.join(output_path, 'eval.tfrecord'))
+def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
+    idx = 0
+    record_idx = 0
+    num_total_records = len(images) % images_per_record + 1
+    writer = tf.python_io.TFRecordWriter(os.path.join(path,
+                                                      '{}_{:04d}_of_{:04d}'.format(phase,
+                                                                                   record_idx + 1,
+                                                                                   num_total_records)))
 
+    for img_name in images:
+        if idx > images_per_record:
+            idx = 0
+            record_idx += 1
+            writer.close()
+            writer = tf.python_io.TFRecordWriter(os.path.join(path,
+                                                              '{}_{:04d}_of_{:04d}'.format(phase,
+                                                                                           record_idx + 1,
+                                                                                           num_total_records)))
+
+        if img_name not in img_to_obj.keys():
+            img_to_obj[img_name] = []
+
+        img_annos = read_annotation_objects(img_to_obj[img_name])
+        image_path = os.path.join(image_dir, img_name)
+        example = prepare_tfexample(image_path, img_annos, label_map_dict)
+        writer.write(example.SerializeToString())
+        idx += 1
+
+    writer.close()
+
+
+def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_map_path):
     df = pd.read_csv(annotation_path)
 
     img_to_obj = {}
@@ -134,34 +161,19 @@ def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_
     images = tf.io.gfile.listdir(image_dir)
     shuffle(images)
 
-    counter = 0
     split_train = 0.7
     split_val = 0.2
     num_train = int(len(images) * split_train)
     num_val = int(len(images) * split_val)
-    for img_name in images:
-        if img_name not in img_to_obj.keys():
-            img_to_obj[img_name] = []
 
-        img_annos = read_annotation_objects(img_to_obj[img_name])
-        image_path = os.path.join(image_dir, img_name)
-        example = prepare_tfexample(image_path, img_annos, label_map_dict)
+    training_path = os.path.join(output_path, 'train')
+    validation_path = os.path.join(output_path, 'val')
+    test_path = os.path.join(output_path, 'test')
 
-        if counter < num_train:
-            train_writer.write(example.SerializeToString())
-            _LOGGER.debug('Image {} added to train record'.format(img_name))
-        elif counter < num_train + num_val:
-            val_writer.write(example.SerializeToString())
-            _LOGGER.debug('Image {} added to val record'.format(img_name))
-        elif counter < num_train + num_val:
-            test_writer.write(example.SerializeToString())
-            _LOGGER.debug('Image {} added to test record'.format(img_name))
-
-        counter += 1
-
-    train_writer.close()
-    val_writer.close()
-    test_writer.close()
+    write_to_tfrecord(images[:num_train], img_to_obj, training_path, 'train', label_map_dict, image_dir)
+    write_to_tfrecord(images[num_train:num_train+num_val], img_to_obj, validation_path, 'val', label_map_dict,
+                      image_dir)
+    write_to_tfrecord(images[num_train+num_val:], img_to_obj, test_path, 'test', label_map_dict, image_dir)
     _LOGGER.debug('Done!')
 
 
