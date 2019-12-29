@@ -118,7 +118,7 @@ def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir
                                                                                    num_total_records)))
 
     for img_name in images:
-        if idx > images_per_record:
+        if idx >= images_per_record:
             idx = 0
             record_idx += 1
             writer.close()
