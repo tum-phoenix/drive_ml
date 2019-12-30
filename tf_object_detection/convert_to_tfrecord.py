@@ -73,21 +73,46 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     xmax_norm = annotations['xmax'] / float(width)
     ymax_norm = annotations['ymax'] / float(height)
 
+    if np.any(xmin_norm > xmax_norm):
+        logging.warn('Image {}, xmin and xmax are replaced: {} - {} / {} - {}'.format(image_path, xmin_norm, xmax_norm,
+                                                                                      annotations['xmin'],
+                                                                                      annotations['xmax']))
+        xmin_norm[xmin_norm > xmax_norm], xmax_norm[xmin_norm > xmax_norm] = xmax_norm[xmin_norm > xmax_norm], \
+                                                                             xmin_norm[xmin_norm > xmax_norm]
+
+    if np.any(ymin_norm > ymax_norm):
+        logging.warn('Image {}, ymin and ymax are replaced: {} - {} / {} - {}'.format(image_path, ymin_norm, ymax_norm,
+                                                                                      annotations['ymin'],
+                                                                                      annotations['ymax']))
+        ymin_norm[ymin_norm > ymax_norm], ymax_norm[ymin_norm > ymax_norm] = ymax_norm[ymin_norm > ymax_norm], \
+                                                                             ymin_norm[ymin_norm > ymax_norm]
+
     if np.any(xmin_norm > 1.0) or np.any(xmin_norm < 0.0):
         logging.warn('Image {}, x_min out of bounds: {} / {} - bound: {}'.format(image_path, xmin_norm,
                                                                                  annotations['xmin'], width))
+        # remove completely if the min is out of bounds, broken annotation
+        xmin_norm = xmin_norm[xmin_norm < 1.0]
 
     if np.any(xmax_norm > 1.0) or np.any(xmax_norm < 0.0):
         logging.warn('Image {}, x_max out of bounds: {} / {} - bound: {}'.format(image_path, xmax_norm,
                                                                                  annotations['xmax'], width))
 
+        # cut down max out of bounds to 1.0
+        xmax_norm[xmax_norm > 1.0] = np.ones_like(xmax_norm[xmax_norm > 1.0])
+
     if np.any(ymin_norm > 1.0) or np.any(ymin_norm < 0.0):
         logging.warn('Image {}, y_min out of bounds: {} / {} - bound: {}'.format(image_path, ymin_norm,
                                                                                  annotations['ymin'], height))
 
+        # remove completely if the min is out of bounds, broken annotation
+        ymin_norm = ymin_norm[ymin_norm < 1.0]
+
     if np.any(ymax_norm > 1.0) or np.any(ymax_norm < 0.0):
         logging.warn('Image {}, y_max out of bounds: {} / {} - bound: {}'.format(image_path, ymax_norm,
                                                                                  annotations['ymax'], height))
+
+        # cut down max out of bounds to 1.0
+        ymax_norm[ymax_norm > 1.0] = np.ones_like(ymax_norm[ymax_norm > 1.0])
 
     # we ignore the "difficult object" labels for now
     difficult_obj = [0] * len(xmin_norm)
