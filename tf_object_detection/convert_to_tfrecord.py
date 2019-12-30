@@ -64,8 +64,8 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     image = pil.open(image_path)
     image = np.asarray(image)
 
-    width = int(image.shape[0])
-    height = int(image.shape[1])
+    width = int(image.shape[1])
+    height = int(image.shape[0])
 
     xmin_norm = annotations['xmin'] / float(width)
     ymin_norm = annotations['ymin'] / float(height)
@@ -73,16 +73,20 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     ymax_norm = annotations['ymax'] / float(height)
 
     if np.any(xmin_norm > 1.0) or np.any(xmin_norm < 0.0):
-        logging.warn('Image {}, x_min out of bounds: {}'.format(image_path, xmin_norm))
+        logging.warn('Image {}, x_min out of bounds: {} / {} - bound: {}'.format(image_path, xmin_norm,
+                                                                                 annotations['xmin'], width))
 
     if np.any(xmax_norm > 1.0) or np.any(xmax_norm < 0.0):
-        logging.warn('Image {}, x_max out of bounds: {}'.format(image_path, xmax_norm))
+        logging.warn('Image {}, x_max out of bounds: {} / {} - bound: {}'.format(image_path, xmax_norm,
+                                                                                 annotations['xmax'], width))
 
     if np.any(ymin_norm > 1.0) or np.any(ymin_norm < 0.0):
-        logging.warn('Image {}, y_min out of bounds: {}'.format(image_path, ymin_norm))
+        logging.warn('Image {}, y_min out of bounds: {} / {} - bound: {}'.format(image_path, ymin_norm,
+                                                                                 annotations['ymin'], height))
 
     if np.any(ymax_norm > 1.0) or np.any(ymax_norm < 0.0):
-        logging.warn('Image {}, y_max out of bounds: {}'.format(image_path, ymax_norm))
+        logging.warn('Image {}, y_max out of bounds: {} / {} - bound: {}'.format(image_path, ymax_norm,
+                                                                                 annotations['ymax'], height))
 
     # we ignore the "difficult object" labels for now
     difficult_obj = [0] * len(xmin_norm)
