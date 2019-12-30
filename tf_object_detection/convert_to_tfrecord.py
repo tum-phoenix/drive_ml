@@ -91,7 +91,11 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
         logging.warn('Image {}, x_min out of bounds: {} / {} - bound: {}'.format(image_path, xmin_norm,
                                                                                  annotations['xmin'], width))
         # remove completely if the min is out of bounds, broken annotation
-        xmin_norm = xmin_norm[xmin_norm < 1.0]
+        indices = xmin_norm < 1.0
+        xmin_norm = xmin_norm[indices]
+        xmax_norm = xmax_norm[indices]
+        ymin_norm = ymin_norm[indices]
+        ymax_norm = ymax_norm[indices]
 
     if np.any(xmax_norm > 1.0) or np.any(xmax_norm < 0.0):
         logging.warn('Image {}, x_max out of bounds: {} / {} - bound: {}'.format(image_path, xmax_norm,
@@ -105,7 +109,11 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
                                                                                  annotations['ymin'], height))
 
         # remove completely if the min is out of bounds, broken annotation
-        ymin_norm = ymin_norm[ymin_norm < 1.0]
+        indices = ymin_norm < 1.0
+        ymin_norm = ymin_norm[indices]
+        xmin_norm = xmin_norm[indices]
+        ymax_norm = ymax_norm[indices]
+        xmax_norm = xmax_norm[indices]
 
     if np.any(ymax_norm > 1.0) or np.any(ymax_norm < 0.0):
         logging.warn('Image {}, y_max out of bounds: {} / {} - bound: {}'.format(image_path, ymax_norm,
