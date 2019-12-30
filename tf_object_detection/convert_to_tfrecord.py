@@ -8,6 +8,7 @@ from random import shuffle
 
 import numpy as np
 import PIL.Image as pil
+import hashlib
 
 # append https://github.com/tensorflow/models to your PYTHONPATH
 sys.path.append('/home/mykyta/models')
@@ -91,13 +92,17 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     # we ignore the "difficult object" labels for now
     difficult_obj = [0] * len(xmin_norm)
 
+    with tf.gfile.GFile(image_path, 'rb') as fid:
+        encoded_png = fid.read()
+    key = hashlib.sha256(encoded_png).hexdigest()
+
     example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': dataset_util.int64_feature(height),
         'image/width': dataset_util.int64_feature(width),
         'image/filename': dataset_util.bytes_feature(image_path.encode('utf8')),
         'image/source_id': dataset_util.bytes_feature(image_path.encode('utf8')),
-        # 'image/key/sha256': dataset_util.bytes_feature(key.encode('utf8')),
-        # 'image/encoded': dataset_util.bytes_feature(encoded_png),
+        'image/key/sha256': dataset_util.bytes_feature(key.encode('utf8')),
+        'image/encoded': dataset_util.bytes_feature(encoded_png),
         'image/format': dataset_util.bytes_feature('jpg'.encode('utf8')),
         'image/object/bbox/xmin': dataset_util.float_list_feature(xmin_norm),
         'image/object/bbox/xmax': dataset_util.float_list_feature(xmax_norm),
@@ -109,6 +114,7 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
             [x for x in annotations['class']]),
         'image/object/difficult': dataset_util.int64_list_feature(difficult_obj),
     }))
+
     return example
 
 
