@@ -9,12 +9,14 @@ from random import shuffle
 import numpy as np
 import PIL.Image as pil
 import hashlib
+import contextlib2
 
 # append https://github.com/tensorflow/models to your PYTHONPATH
 sys.path.append('/home/mykyta/models')
 sys.path.append('/home/mykyta/models/research')
 from research.object_detection.utils import dataset_util
 from research.object_detection.utils import label_map_util
+from research.object_detection.dataset_tools import tf_record_creation_util
 
 import logging
 
@@ -38,12 +40,9 @@ def write_phoenix_label_map(target_path):
 
 def convert_to_tfrecord(image_path, annotation_path, target_path):
     training_path = os.path.join(target_path, 'train')
-    validation_path = os.path.join(target_path, 'val')
     test_path = os.path.join(target_path, 'test')
     if not os.path.exists(training_path):
         os.makedirs(training_path)
-    if not os.path.exists(validation_path):
-        os.makedirs(validation_path)
     if not os.path.exists(test_path):
         os.makedirs(test_path)
 
@@ -152,34 +151,18 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
 
 
 def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
-    idx = 0
-    record_idx = 0
-    num_total_records = len(images) // images_per_record + 1
-    writer = tf.python_io.TFRecordWriter(os.path.join(path,
-                                                      '{}_{:03d}_of_{:03d}'.format(phase,
-                                                                                   record_idx + 1,
-                                                                                   num_total_records)))
+    num_total_records = len(images) // images_per_record + (len(images) % images_per_record > 0)
+    output_path = os.path.join(path, '{}_dataset.record'.format(phase))
 
-    for img_name in images:
-        if idx >= images_per_record:
-            idx = 0
-            record_idx += 1
-            writer.close()
-            writer = tf.python_io.TFRecordWriter(os.path.join(path,
-                                                              '{}_{:03d}_of_{:03d}'.format(phase,
-                                                                                           record_idx + 1,
-                                                                                           num_total_records)))
-
-        if img_name not in img_to_obj.keys():
-            img_to_obj[img_name] = []
-
-        img_annos = read_annotation_objects(img_to_obj[img_name])
-        image_path = os.path.join(image_dir, img_name)
-        example = prepare_tfexample(image_path, img_annos, label_map_dict)
-        writer.write(example.SerializeToString())
-        idx += 1
-
-    writer.close()
+    with contextlib2.ExitStack() as tf_record_close_stack:
+        output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
+            tf_record_close_stack, output_path, num_total_records)
+        for index, img_name in enumerate(images):
+            img_annos = read_annotation_objects(img_to_obj[img_name])
+            image_path = os.path.join(image_dir, img_name)
+            example = prepare_tfexample(image_path, img_annos, label_map_dict)
+            output_shard_index = index // images_per_record
+            output_tfrecords[output_shard_index].write(example.SerializeToString())
 
 
 def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_map_path):
@@ -205,19 +188,14 @@ def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_
     images = [image for image in images if image.endswith('.png')]
     shuffle(images)
 
-    split_train = 0.7
-    split_val = 0.2
+    split_train = 0.8
     num_train = int(len(images) * split_train)
-    num_val = int(len(images) * split_val)
 
     training_path = os.path.join(output_path, 'train')
-    validation_path = os.path.join(output_path, 'val')
     test_path = os.path.join(output_path, 'test')
 
     write_to_tfrecord(images[:num_train], img_to_obj, training_path, 'train', label_map_dict, image_dir)
-    write_to_tfrecord(images[num_train:num_train+num_val], img_to_obj, validation_path, 'val', label_map_dict,
-                      image_dir)
-    write_to_tfrecord(images[num_train+num_val:], img_to_obj, test_path, 'test', label_map_dict, image_dir)
+    write_to_tfrecord(images[num_train:], img_to_obj, test_path, 'test', label_map_dict, image_dir)
     _LOGGER.debug('Done!')
 
 
