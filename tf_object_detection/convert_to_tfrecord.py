@@ -158,6 +158,8 @@ def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir
         output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
             tf_record_close_stack, output_path, num_total_records)
         for index, img_name in enumerate(images):
+            if img_name not in img_to_obj:
+                img_to_obj[img_name] = []
             img_annos = read_annotation_objects(img_to_obj[img_name])
             image_path = os.path.join(image_dir, img_name)
             example = prepare_tfexample(image_path, img_annos, label_map_dict)
