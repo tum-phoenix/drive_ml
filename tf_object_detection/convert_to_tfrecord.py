@@ -141,7 +141,7 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
         'image/object/bbox/ymin': dataset_util.float_list_feature(ymin_norm),
         'image/object/bbox/ymax': dataset_util.float_list_feature(ymax_norm),
         'image/object/class/text': dataset_util.bytes_list_feature(
-            [sign_name_carolo_dict[x - 1].encode('utf8') for x in annotations['class']]),
+            [sign_name_carolo_dict[x].encode('utf8') for x in annotations['class']]),
         'image/object/class/label': dataset_util.int64_list_feature(
             [x for x in annotations['class']]),
         'image/object/difficult': dataset_util.int64_list_feature(difficult_obj),
