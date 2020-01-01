@@ -17,6 +17,7 @@ sys.path.append('/home/mykyta/models/research')
 from research.object_detection.utils import dataset_util
 from research.object_detection.utils import label_map_util
 from research.object_detection.dataset_tools import tf_record_creation_util
+from tqdm import tqdm
 
 import logging
 
@@ -141,23 +142,23 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
         'image/object/bbox/ymin': dataset_util.float_list_feature(ymin_norm),
         'image/object/bbox/ymax': dataset_util.float_list_feature(ymax_norm),
         'image/object/class/text': dataset_util.bytes_list_feature(
-            [sign_name_carolo_dict[x-1].encode('utf8') for x in annotations['class']]),
+            [sign_name_carolo_dict[x].encode('utf8') for x in annotations['class']]),
         'image/object/class/label': dataset_util.int64_list_feature(
-            [x-1 for x in annotations['class']]),
+            [x+1 for x in annotations['class']]),
         'image/object/difficult': dataset_util.int64_list_feature(difficult_obj),
     }))
 
     return example
 
 
-def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=200):
+def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
     num_total_records = len(images) // images_per_record + (len(images) % images_per_record > 0)
     output_path = os.path.join(path, '{}_dataset.record'.format(phase))
 
     with contextlib2.ExitStack() as tf_record_close_stack:
         output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
             tf_record_close_stack, output_path, num_total_records)
-        for index, img_name in enumerate(images):
+        for index, img_name in tqdm(enumerate(images)):
             if img_name not in img_to_obj:
                 img_to_obj[img_name] = []
             img_annos = read_annotation_objects(img_to_obj[img_name])
@@ -178,7 +179,7 @@ def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_
             'xmax': df['Roi.X2'][i],
             'ymin': df['Roi.Y1'][i],
             'ymax': df['Roi.Y2'][i],
-            'class': df['ClassId'][i] + 1
+            'class': df['ClassId'][i] 
         }
         if frame_filename not in img_to_obj:
             img_to_obj[frame_filename] = []
