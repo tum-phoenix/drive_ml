@@ -150,7 +150,7 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     return example
 
 
-def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
+def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=200):
     num_total_records = len(images) // images_per_record + (len(images) % images_per_record > 0)
     output_path = os.path.join(path, '{}_dataset.record'.format(phase))
 
