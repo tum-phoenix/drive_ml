@@ -30,10 +30,9 @@ def write_phoenix_label_map(target_path):
 
     output_file_path = os.path.join(target_path, 'phoenix_label_map.pbtxt')
     file = open(output_file_path, "w+")
-    for id in classnames:
+    for idx, id in enumerate(classnames):
         file.write("item {\n")
-        file.write("  id: " + str(id + 1) + "\n")
-        file.write("  name: '" + str(id + 1) + "'\n")
+        file.write("  id: " + str(idx + 1) + "\n")
         file.write("  display_name: '" + sign_name_carolo_dict[id] + "'\n}\n\n")
     file.close()
     return output_file_path
@@ -129,6 +128,8 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
         encoded_png = fid.read()
     key = hashlib.sha256(encoded_png).hexdigest()
 
+    class_to_key_map = {key: idx+1 for idx, key in enumerate(sign_name_carolo_dict.keys())}
+
     example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': dataset_util.int64_feature(height),
         'image/width': dataset_util.int64_feature(width),
@@ -144,7 +145,7 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
         'image/object/class/text': dataset_util.bytes_list_feature(
             [sign_name_carolo_dict[x].encode('utf8') for x in annotations['class']]),
         'image/object/class/label': dataset_util.int64_list_feature(
-            [x+1 for x in annotations['class']]),
+            [class_to_key_map[x] for x in annotations['class']]),
         'image/object/difficult': dataset_util.int64_list_feature(difficult_obj),
     }))
 
