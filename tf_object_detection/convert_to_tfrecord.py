@@ -152,7 +152,7 @@ def prepare_tfexample(image_path, annotations, label_map_dict):
     return example
 
 
-def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=20):
+def write_to_tfrecord(images, img_to_obj, path, phase, label_map_dict, image_dir, images_per_record=30):
     num_total_records = len(images) // images_per_record + (len(images) % images_per_record > 0)
     output_path = os.path.join(path, '{}_dataset.record'.format(phase))
 
@@ -189,7 +189,7 @@ def convert_phoenix_to_tfrecords(image_dir, annotation_path, output_path, label_
     label_map_dict = label_map_util.get_label_map_dict(label_map_path, use_display_name=True)
 
     images = tf.io.gfile.listdir(image_dir)
-    images = [image for image in images if image.endswith('.png')]
+    images = [image for image in images if image.endswith('.png') or image.endswith('.jpg') or image.endswith('.ppm')]
     shuffle(images)
 
     split_train = 0.8
