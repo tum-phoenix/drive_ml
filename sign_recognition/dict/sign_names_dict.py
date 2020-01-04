@@ -110,6 +110,10 @@ rtsd_to_carolo = {
 	'5_4': 111
 }
 
+MTSD_to_carolo = {
+    'warning--curve-left--g2': 107
+}
+
 # all carolo cup signs currently in use
 sign_name_carolo_dict = {
 	0: '20 Zone Anfang (speed limit 20 start)',
