@@ -112,6 +112,19 @@ rtsd_to_carolo = {
 
 MTSD_to_carolo = {
     'warning--curve-left--g2': 107
+    'regulatory--keep-right--g1': 12
+    'regulatory--priority-road--g1': 7
+    'regulatory--stop--g1': 9
+    'regulatory--turn-left-ahead--g1': 10
+    'regulatory--turn-right-ahead--g1': 11
+    'regulatory--yield--g1': 8
+    'regulatory--no-overtaking--g1': 6
+    'regulatory--give-way-to-oncoming-traffic--g1': 14
+    'information--limited-access-road--g1': 24
+    'information--parking--g1': 23
+    'information--pedestrians-crossing--g1': 16
+    'complementary--chevron-left--g5': 17
+    'complementary--chevron-right--g5': 19
 }
 
 # all carolo cup signs currently in use
