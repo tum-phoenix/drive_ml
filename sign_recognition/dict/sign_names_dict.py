@@ -125,6 +125,8 @@ MTSD_to_carolo = {
     'information--pedestrians-crossing--g1': 16
     'complementary--chevron-left--g5': 17
     'complementary--chevron-right--g5': 19
+    'warning--steep-ascent--g4': 108
+    'warning--steep-descent--g4': 107
 }
 
 # all carolo cup signs currently in use
