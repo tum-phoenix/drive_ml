@@ -111,22 +111,24 @@ rtsd_to_carolo = {
 }
 
 MTSD_to_carolo = {
-    'warning--curve-left--g2': 107
-    'regulatory--keep-right--g1': 12
-    'regulatory--priority-road--g1': 7
-    'regulatory--stop--g1': 9
-    'regulatory--turn-left-ahead--g1': 10
-    'regulatory--turn-right-ahead--g1': 11
-    'regulatory--yield--g1': 8
-    'regulatory--no-overtaking--g1': 6
-    'regulatory--give-way-to-oncoming-traffic--g1': 14
-    'information--limited-access-road--g1': 24
-    'information--parking--g1': 23
-    'information--pedestrians-crossing--g1': 16
-    'complementary--chevron-left--g5': 17
-    'complementary--chevron-right--g5': 19
-    'warning--steep-ascent--g4': 108
-    'warning--steep-descent--g4': 107
+    'regulatory--no-overtaking--g1': 9,
+    'regulatory--priority-road--g1': 12,
+    'regulatory--yield--g1': 13,
+    'regulatory--stop--g1': 14,
+    'regulatory--turn-right-ahead--g1': 33,
+    'regulatory--turn-left-ahead--g1': 34,
+    'regulatory--keep-right--g1': 38,
+    'regulatory--end-of-no-overtaking--g1': 41,
+    'regulatory--give-way-to-oncoming-traffic--g1': 100,
+    'information--pedestrians-crossing--g1': 102,
+    'complementary--chevron-left--g5': 103,
+    'complementary--chevron-right--g5': 104,
+    # 105/106: does not have a separate label for sharp-turns, there is complementary--chevron-left/right--g3/g4 in blue/black
+    'warning--steep-ascent--g4': 108 # wrong pictograms in their data
+    'warning--steep-descent--g4': 107 # wrong pictograms in their data
+    'information--parking--g1': 109,
+    'information--limited-access-road--g1': 110,
+    'information--end-of-limited-access-road--g1': 111,
 }
 
 # all carolo cup signs currently in use
