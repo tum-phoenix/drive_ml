@@ -124,8 +124,8 @@ MTSD_to_carolo = {
     'complementary--chevron-left--g5': 103,
     'complementary--chevron-right--g5': 104,
     # 105/106: does not have a separate label for sharp-turns, there is complementary--chevron-left/right--g3/g4 in blue/black
-    'warning--steep-ascent--g4': 108 # wrong pictograms in their data
-    'warning--steep-descent--g4': 107 # wrong pictograms in their data
+    'warning--steep-ascent--g4': 108, # wrong pictograms in their data, but it does not exist in data anyway
+    'warning--steep-descent--g4': 107, # wrong pictograms in their data, but it does not exist in data anyway
     'information--parking--g1': 109,
     'information--limited-access-road--g1': 110,
     'information--end-of-limited-access-road--g1': 111,
