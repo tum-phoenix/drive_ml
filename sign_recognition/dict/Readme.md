@@ -32,12 +32,12 @@
 | Kraftfahrtstraße Anfang | expressway begin  | 331.1 | 00110 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.1.png" width="48" height="48">|
 | Kraftfahrtstraße Ende | expressway end  | 331.2 | 00111 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_sim_road_generation/master/commonroad/renderer/signs/stvo-331.2.png" width="48" height="48">|
 | Fußgänger | pedestrian  | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/pedestrian.png" width="30" height="48">|
-| Geschwindigkeitsbegrenzungszone Zahlen 0-9 | speed limit-zone digits 0-9  | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_digits_1-9.png" width="233" height="48">|
-| Ende Geschwindigkeitsbegrenzungszone | end of speed limit-zone | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_end.png" width="30" height="70">|
-| Links abbiegen | turn right ahead | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_left_ahead.png" width="30" height="70">|
-| Rechts abbiegen | turn left ahead | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_right_ahead.png" width="30" height="70">|
-| Zebrastreifen | crosswalk | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/crosswalk.png" width="60" height="60">|
-| Gesperrter Bereich | barred area | n/a | 00115 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/barred_area.png" width="175" height="30">|
+| Geschwindigkeitsbegrenzungszone Zahlen 0-9 | speed limit-zone digits 0-9  | n/a | 00201-00209 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_digits_1-9.png" width="233" height="48">|
+| Ende Geschwindigkeitsbegrenzungszone | end of speed limit-zone | n/a | 00210 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/speed_limit_zone_end.png" width="30" height="70">|
+| Links abbiegen | turn right ahead | n/a | 00233 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_left_ahead.png" width="30" height="70">|
+| Rechts abbiegen | turn left ahead | n/a | 00234 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_right_ahead.png" width="30" height="70">|
+| Zebrastreifen | crosswalk | n/a | 00213 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/crosswalk.png" width="60" height="60">|
+| Gesperrter Bereich | barred area | n/a | 00211 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/barred_area.png" width="175" height="30">|
 | - | zero class image  | - | 00043 | |
 
 # GTRSB Signs
