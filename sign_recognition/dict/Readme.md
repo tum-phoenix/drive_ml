@@ -38,6 +38,7 @@
 | Rechts abbiegen | turn left ahead | n/a | 00234 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/turn_right_ahead.png" width="30" height="70">|
 | Zebrastreifen | crosswalk | n/a | 00213 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/crosswalk.png" width="60" height="60">|
 | Gesperrter Bereich | barred area | n/a | 00211 |<img src="https://raw.githubusercontent.com/tum-phoenix/drive_ml/master/sign_recognition/images/barred_area.png" width="175" height="30">|
+| Startline| start line | n/a | 00212 | |
 | - | zero class image  | - | 00043 | |
 
 # GTRSB Signs
