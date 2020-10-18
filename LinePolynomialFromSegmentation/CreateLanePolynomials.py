@@ -11,7 +11,7 @@ IMAGES_RGB = 'images_simulation/rgb'
 IMAGES_LANE = 'images_simulation/lane_segmentation'
 image_rgb = IMAGES_RGB + '/' + image_name
 image_lane = IMAGES_LANE + '/' + image_name
-thr_lane = 5002
+thr_lane = 5003
 
 def get_lanes(img,min_area):
     # default return
