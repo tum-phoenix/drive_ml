@@ -13,6 +13,7 @@ image_rgb = IMAGES_RGB + '/' + image_name
 image_lane = IMAGES_LANE + '/' + image_name
 thr_lane = 5002
 
+
 def get_lanes(img,min_area):
     # default return
     contours_poly_total = []
