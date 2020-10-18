@@ -268,7 +268,7 @@ if bEvaluateOffline==True:
     path_image_segm = folder + 'semseg_color/' + image_name
     imread_rgb = cv.imread(path_image_rgb)
     imread_seg = cv.imread(path_image_segm)
-    print(path_image_segm)
+    print(path_image_segm) 
 
     #print(imread_rgb)
     # option 1:
