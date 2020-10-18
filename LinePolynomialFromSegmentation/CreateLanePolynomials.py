@@ -7,8 +7,8 @@ import numpy as np
 from numpy.polynomial import polynomial as P
 
 image_name = "Image0031.png"
-IMAGES_RGB = 'images_simulation/rgb'
-IMAGES_LANE = 'images_simulation/lane_segmentation'
+IMAGES_RGB = 'images_simulation/machine-hall-1/rgb'
+IMAGES_LANE = 'images_simulation/machine-hall-1/lane_segmentation'
 image_rgb = IMAGES_RGB + '/' + image_name
 image_lane = IMAGES_LANE + '/' + image_name
 thr_lane = 5002
