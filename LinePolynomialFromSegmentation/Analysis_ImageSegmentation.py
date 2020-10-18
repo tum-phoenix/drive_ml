@@ -178,11 +178,11 @@ def main(imread_seg, imread_rgb=None):
 
                 for contour_poly in contours_poly:
                     bool_lane = True
-                    contour_poly = contour_poly.astype('float64') 
+                    contour_poly = contour_poly.astype('float64')
                     contour_poly[:,0] = np.divide(contour_poly[:,0], W)
                     contour_poly[:,1] = np.divide(contour_poly[:,1], H)
-                        
-                    h = np.load('homography.npy')
+
+                    h = np.load('homography/homography.npy')
                     contour_poly = np.array([contour_poly])
                     #print("\ncontour_poly")
                     #print(contour_poly)
@@ -190,11 +190,11 @@ def main(imread_seg, imread_rgb=None):
                     print("\ncontour_poly_hom")
                     print(contour_poly_hom)
                     contour_poly_hom = contour_poly_hom[0]
-                    
+
                     # Calculate the coefficients of the polynomial
                     coef1, res1, _, _, _ = np.polyfit(contour_poly_hom[:,0],contour_poly_hom[:,1],1, full=True)
                     coef2, res2, _, _, _ = np.polyfit(contour_poly_hom[:,0],contour_poly_hom[:,1],2, full=True)
-                    res_diff = np.abs(np.sum(res1)-np.sum(res2)); print("residual: " + str(res_diff)); 
+                    res_diff = np.abs(np.sum(res1)-np.sum(res2)); print("residual: " + str(res_diff));
                     if res_diff<=0.2:
                         coef = coef1
                     else:
